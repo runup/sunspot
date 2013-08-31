@@ -1,44 +1,25 @@
- <div class="row">
-        <div class="span6">
-          <h3><a class="btn btn-large btn-primary" href="#">知识管理 &raquo;</a></h3>
-          <ul>
-			<%@kms.each do |km|%>
-				<li><%=link_to km.title,article_path(km)%></li>
-			<%end%>
-		  </ul>
-        </div>
-
-        <div class="span6">
-          <h3><a class="btn btn-large btn-primary" href="#">java学习 &raquo;</a></h3>
-          <ul>
-			<%@javas.each do |java|%>
-				<li><%=link_to java.title,article_path(java)%></li>
-			<%end%>
-		  </ul>         
-        </div>       
-</div>
 
 
+
+<h3 align="center">所有的文章</h3>
+<%= form_tag articles_path, :method => :get do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :title => nil %>
+<% end %>
 
  <div class="row">
-        <div class="span6">
-          <h3><a class="btn btn-large btn-primary" href="#">脚本学习 &raquo;</a></h3>
-          <ul>
-			<%@jss.each do |js|%>
-				<li><%=link_to js.title ,article_path(js)%></li>
-			<%end%>
-		  </ul>
-        </div>
-
-        <div class="span6">
-          <h3><a class="btn btn-large btn-primary" href="#">ruby学习 &raquo;</a></h3>
-          <ul>
-			<%@rubys.each do |ruby|%>
-				<li><%=link_to ruby.title,article_path(ruby)%></li>
-			<%end%>
-		  </ul>         
-        </div>       
+        <div class="span12">
+        	<ul>
+        	<%@articles.each do |article|%>
+        		<li><%=link_to article.title,article_path(article)%></br>
+        			<%=article.content%>
+        		</li>
+        	<%end%>
+          	</ul>
+        </div>           
 </div>
+
 
 
 
