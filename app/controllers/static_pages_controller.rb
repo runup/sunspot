@@ -6,10 +6,7 @@ class StaticPagesController < ApplicationController
     @rubys = Article.where("tag = 'ruby开发'")
     @jss = Article.where("tag = '脚本语言'")
     
-    @search = Article.search do
-      fulltext params[:search]
-    end
-    @articles = @search.results
+    @articles = Article.all
   end
 
   def help
