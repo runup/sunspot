@@ -12,7 +12,7 @@
     	<%= link_to '发布知识',new_article_path,class: "btn btn-large btn-primary" %>	
       </br>
     	<ol>
-			<%@article.each do |t|%>
+			<%@articles.each do |t|%>
 			<li>
       <%=link_to t.title,t %>   
       <span class="timestamp">

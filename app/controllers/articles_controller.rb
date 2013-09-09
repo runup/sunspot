@@ -13,7 +13,11 @@ class ArticlesController < ApplicationController
 
 	def index
 		@user = User.find(current_user)
-		@article = @user.articles.all
+		@articles = @user.articles.all
+    @search = Article.search do
+      fulltext params[:search]
+    end
+    @articles = @search.results
 	end
 
 	def edit
